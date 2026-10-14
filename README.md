@@ -1,5 +1,7 @@
 # linux-hardening-kit
 
+[![tests](https://github.com/francisco-vilaca/linux-hardening-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/francisco-vilaca/linux-hardening-kit/actions/workflows/tests.yml) ![license](https://img.shields.io/badge/license-MIT-blue)
+
 Audit and harden Debian/Ubuntu servers **without locking yourself out**.
 
 A single Bash script with two modes:
