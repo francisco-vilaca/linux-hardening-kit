@@ -1,0 +1,17 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck harden.sh tests/integration.sh
+  integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: ["ubuntu:22.04", "ubuntu:24.04", "debian:12"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run integration tests in a throwaway ${{ matrix.image }} container
+        run: docker run --rm -v "$PWD":/src -w /src ${{ matrix.image }} bash tests/integration.sh
