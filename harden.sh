@@ -290,6 +290,7 @@ audit_listening() {
   local ports
   ports=$(ss -H -tuln 2>/dev/null | awk '{print $1"/"$5}' \
     | grep -Ev '/(127\.[0-9.]+|\[::1\]|::1):' | sed -E 's#^(tcp|udp)/.*:([0-9]+)$#\2/\1#' | sort -un | tr '\n' ' ') || true
+  ports=${ports% }
   if [[ -n $ports ]]; then result NETWORK INFO "Listening on non-loopback addresses: $ports"
   else result NETWORK OK "No services listening on non-loopback addresses"; fi
 }

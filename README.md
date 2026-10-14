@@ -31,6 +31,8 @@ linux-hardening-kit 0.1.0: audit of web01
   Summary: 4 OK, 1 INFO, 6 WARN, 2 FAIL
 ```
 
+See a real [example report](docs/example-report.md) produced by `audit --markdown`.
+
 ## Safety first
 
 Hardening scripts are dangerous when they assume things. This one checks before it acts:
